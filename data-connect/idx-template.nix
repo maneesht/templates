@@ -21,7 +21,8 @@ idx-template \
     if sample == "js-quickstart" then "git clone -b mtewani/idx-updates --single-branch https://github.com/firebase/quickstart-js \"$out\"" else ""}
     ${
     if sample == "flutter-blank" || sample == "flutter-movie" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
-      else "cp ${./.}/${sample}/dev.nix \"$out\"/.idx/dev.nix"
+      else if sample != "js-quickstart" then "cp ${./.}/${sample}/dev.nix \"$out\"/.idx/dev.nix"
+      else ""
     }
     
     ${
