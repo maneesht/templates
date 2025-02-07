@@ -14,8 +14,7 @@ idx-template \
 
   bootstrap = let 
     platformPrefix = if platform == "web" then "js" else "flutter";
-    suffix = if platform == "flutter" && appType == "quickstart" then "movie" else appType;
-    sample = "${platformPrefix}-${suffix}";
+    sample = "${platform}-${appType}";
     in ''
     ${
     if sample == "js-quickstart" then "git clone -b mtewani/idx-updates --single-branch https://github.com/firebase/quickstart-js test-dir --no-checkout
@@ -24,10 +23,17 @@ idx-template \
     git sparse-checkout set dataconnect
     git checkout
     cp -r dataconnect \"$out\"
+    " else if sample == "flutter-quickstart" then "
+    git clone -b mtewani/idx-updates --single-branch https://github.com/firebase/quickstart-quickstart test-dir --no-checkout
+    cd test-dir
+    git sparse-checkout init --cone
+    git sparse-checkout set dataconnect
+    git checkout
+    cp -r dataconnect \"$out\"
     " else ""}
     ${
-    if sample == "flutter-blank" || sample == "flutter-movie" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
-      else if sample != "js-quickstart" then "cp ${./.}/${sample}/dev.nix \"$out\"/.idx/dev.nix"
+    if sample == "flutter-blank" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
+      else if sample != "js-blank" then "cp ${./.}/${./nextjs-blank}/dev.nix \"$out\"/.idx/dev.nix"
       else ""
     }
     
@@ -39,10 +45,10 @@ idx-template \
     }
     chmod -R u+w "$out"
     ${
-      if sample == "flutter-blank" || sample == "flutter-movie" then "cp ${./flutter}/Caddyfile \"$out\"/" else ""
+      if sample == "flutter-blank" then "cp ${./flutter}/Caddyfile \"$out\"/" else ""
     }
     ${
-      if sample == "flutter-blank" || sample == "flutter-movie" then "cp ${./flutter}/error_handler.dart \"$out\"/lib/" else ""
+      if sample == "flutter-blank" then "cp ${./flutter}/error_handler.dart \"$out\"/lib/" else ""
     }
     
     chmod -R u+w "$out"
