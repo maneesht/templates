@@ -30,6 +30,7 @@ idx-template \
     git sparse-checkout set data_connect
     cp -r data_connect \"$out\"
     " else ""}
+    chmod -R u+w "$out"
     ${if appType == "quickstart" then "
     cp setup-idx.sh \"$out\"
     cd \$out\"
