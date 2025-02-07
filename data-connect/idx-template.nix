@@ -27,9 +27,9 @@ idx-template \
     git clone -b mtewani/idx-git-updates --single-branch https://github.com/firebase/quickstart-flutter test-dir --no-checkout
     cd test-dir
     git sparse-checkout init --cone
-    git sparse-checkout set dataconnect
+    git sparse-checkout set data_connect
     git checkout
-    cp -r dataconnect \"$out\"
+    cp -r data_connect \"$out\"
     " else ""}
     ${
     if sample == "flutter-blank" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
