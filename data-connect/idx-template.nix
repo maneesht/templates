@@ -14,7 +14,7 @@ idx-template \
 
   bootstrap = let 
     platformPrefix = if platform == "web" then "js" else "flutter";
-    sample = "${platform}-${appType}";
+    sample = "${platformPrefix}-${appType}";
     in ''
     ${
     if sample == "js-quickstart" then "git clone -b mtewani/idx-updates --single-branch https://github.com/firebase/quickstart-js test-dir --no-checkout
