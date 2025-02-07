@@ -32,8 +32,6 @@ idx-template \
     cp -r data_connect \"$out\"
     " else "
     mkdir -p \"$out\"/.idx
-    chmod -R u+w \"$out\"
-    chmod -R u+w \"$out\"/.idx
     "}
     chmod -R u+w "$out"
     ${if appType == "quickstart" then "
