@@ -40,7 +40,7 @@ idx-template \
     " else ""}
     ${
     if sample == "flutter-blank" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
-      else if sample == "js-blank" then "cp ${./.}/${./nextjs-blank}/dev.nix \"$out\"/.idx/dev.nix"
+      else if sample == "js-blank" then "cp ${./nextjs-blank}/dev.nix \"$out\"/.idx/dev.nix"
       else ""
     }
     
