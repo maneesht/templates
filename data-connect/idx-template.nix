@@ -28,6 +28,7 @@ idx-template \
     cd test-dir
     git sparse-checkout init --cone
     git sparse-checkout set data_connect
+    git checkout
     cp -r data_connect \"$out\"
     " else ""}
     chmod -R u+w "$out"
