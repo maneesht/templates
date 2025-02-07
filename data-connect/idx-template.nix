@@ -22,6 +22,10 @@ idx-template \
     git sparse-checkout init --cone
     git sparse-checkout set dataconnect
     git checkout
+    cd dataconnect
+    chmod +x ./setup-idx.sh
+    ./setup-idx.sh
+    cd ../
     cp -r dataconnect \"$out\"
     " else if sample == "flutter-quickstart" then "
     git clone -b mtewani/idx-git-updates --single-branch https://github.com/firebase/quickstart-flutter test-dir --no-checkout
@@ -29,6 +33,10 @@ idx-template \
     git sparse-checkout init --cone
     git sparse-checkout set data_connect
     git checkout
+    cd data_connect
+    chmod +x ./setup-idx.sh
+    ./setup-idx.sh
+    cd ../
     cp -r data_connect \"$out\"
     " else ""}
     ${
