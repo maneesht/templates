@@ -60,5 +60,6 @@ idx-template \
     ${
       if sample == "flutter-blank" then "cp ${./flutter}/error_handler.dart \"$out\"/lib/" else ""
     }
+    chmod -R u+w "$out"
   '';
 }
