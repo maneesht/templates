@@ -39,10 +39,6 @@ idx-template \
       if sample == "flutter-blank" || sample == "flutter-movie" then "cp ${./flutter}/error_handler.dart \"$out\"/lib/" else ""
     }
     
-    cp ${./.firebaserc} "$out"/.firebaserc
-    cp ${./.graphqlrc.yaml} "$out"/.graphqlrc.yaml
-    mkdir "$out"/.vscode
-    cp ${./.vscode/settings.json} "$out"/.vscode/settings.json
     chmod -R u+w "$out"
   '';
 }
