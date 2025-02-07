@@ -36,7 +36,7 @@ idx-template \
     cp ${./setup-idx.sh} \"$out\"/setup-idx.sh
     cd \"$out\"
     chmod +x ./setup-idx.sh
-    ./setup-idx.sh
+    ./setup-idx.sh ${platform}
     " else ""}
     ${
     if sample == "flutter-blank" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
