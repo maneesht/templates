@@ -33,7 +33,7 @@ idx-template \
     " else ""}
     chmod -R u+w "$out"
     ${if appType == "quickstart" then "
-    cp ${./setup-idx.sh} \"$out\/setup-idx.sh"
+    cp ${./setup-idx.sh} \"$out\"/setup-idx.sh
     cd \"$out\"
     chmod +x ./setup-idx.sh
     ./setup-idx.sh
