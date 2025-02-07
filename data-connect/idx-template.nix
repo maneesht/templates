@@ -18,7 +18,13 @@ idx-template \
     sample = "${platformPrefix}-${suffix}";
     in ''
     ${
-    if sample == "js-quickstart" then "git clone -b mtewani/idx-updates --single-branch https://github.com/firebase/quickstart-js \"$out\"" else ""}
+    if sample == "js-quickstart" then "git clone -b mtewani/idx-updates --single-branch https://github.com/firebase/quickstart-js test-dir --no-checkout
+    cd test-dir
+    git sparse-checkout init --cone
+    git sparse-checkout set dataconnect
+    git checkout
+    cp -r dataconnect \"$out\"
+    " else ""}
     ${
     if sample == "flutter-blank" || sample == "flutter-movie" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
       else if sample != "js-quickstart" then "cp ${./.}/${sample}/dev.nix \"$out\"/.idx/dev.nix"
