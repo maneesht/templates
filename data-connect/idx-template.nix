@@ -30,14 +30,14 @@ idx-template \
     git sparse-checkout set data_connect
     git checkout
     cp -r data_connect \"$out\"
-    " else ""}
+    " else "mkdir \"$out\""}
     chmod -R u+w "$out"
     ${if appType == "quickstart" then "
     cp ${./setup-idx.sh} \"$out\"/setup-idx.sh
     cd \"$out\"
     chmod +x ./setup-idx.sh
     ./setup-idx.sh ${platform}
-    " else "mkdir \"$out\""}
+    " else ""}
     ${
     if sample == "flutter-blank" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
       else if sample == "js-blank" then "cp ${./.}/${./nextjs-blank}/dev.nix \"$out\"/.idx/dev.nix"
