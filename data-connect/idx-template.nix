@@ -37,7 +37,7 @@ idx-template \
     cd \"$out\"
     chmod +x ./setup-idx.sh
     ./setup-idx.sh ${platform}
-    " else ""}
+    " else "mkdir \"$out\""}
     ${
     if sample == "flutter-blank" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
       else if sample == "js-blank" then "cp ${./.}/${./nextjs-blank}/dev.nix \"$out\"/.idx/dev.nix"
@@ -50,14 +50,11 @@ idx-template \
       else if sample == "flutter-movie" then "cp -r ${./flutter-movie}/* \"$out\""
       else ""
     }
-    chmod -R u+w "$out"
     ${
       if sample == "flutter-blank" then "cp ${./flutter}/Caddyfile \"$out\"/" else ""
     }
     ${
       if sample == "flutter-blank" then "cp ${./flutter}/error_handler.dart \"$out\"/lib/" else ""
     }
-    
-    chmod -R u+w "$out"
   '';
 }
