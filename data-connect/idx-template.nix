@@ -33,10 +33,10 @@ idx-template \
     " else ""}
     chmod -R u+w "$out"
     ${if appType == "quickstart" then "
-    cp setup-idx.sh \"$out\"
+    cp ${./setup-idx.sh} \"$out\"
     cd \$out\"
-    chmod +x setup-idx.sh
-    ./setup-idx.sh
+    chmod +x ${./setup-idx.sh}
+    ${./setup-idx.sh}
     " else ""}
     ${
     if sample == "flutter-blank" then "cp -r ${./flutter}/dev.nix \"$out\"/.idx/dev.nix"
