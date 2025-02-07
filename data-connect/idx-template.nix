@@ -17,9 +17,6 @@ idx-template \
     suffix = if platform == "flutter" && appType == "quickstart" then "movie" else appType;
     sample = "${platformPrefix}-${suffix}";
     in ''
-    mkdir "$out"
-    chmod -R u+w "$out"
-    mkdir "$out"/.idx
     ${
     if sample == "js-quickstart" then "git clone -b mtewani/idx-updates --single-branch https://github.com/firebase/quickstart-js \"$out\"" else ""}
     ${
